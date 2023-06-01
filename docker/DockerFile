@@ -1,0 +1,26 @@
+FROM nginx/unit:1.29.1-python3.11
+
+LABEL version="1.0"
+LABEL description="cx-nginx-unit-python"
+
+RUN apt-get clean
+RUN apt-get update && apt-get install -y --no-install-recommends
+
+RUN apt-get install -y python3-pip   
+
+RUN pip install --upgrade pip
+RUN pip install --no-cache json3
+RUN pip install --no-cache fastapi
+RUN pip install --no-cache uvicorn
+RUN pip install --no-cache schedule
+
+WORKDIR /usr/share/nginx/html/backend/
+
+COPY ./controller.py /usr/share/nginx/html/backend/
+COPY ./syncJSON.py /usr/share/nginx/html/backend/
+COPY ./scheduler.py /usr/share/nginx/html/backend/
+
+
+CMD ["python", "./controller.py"]
+
+EXPOSE 8080

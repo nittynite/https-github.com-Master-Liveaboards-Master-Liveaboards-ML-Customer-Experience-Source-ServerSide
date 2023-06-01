@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+    cx-app-nginx-unit:
+        container_name: "cx-app-nginx-unit-python"
+        image: cx-app-nginx-unit-python
+        build: 
+            context: .
+            dockerfile: ./docker/DockerFile
+        depends_on: [
+            "cx-app-nginx"
+        ]
+        networks:
+            - cx
+        volumes:
+            - data-volume:/usr/share/nginx/html/data
+        environment:
+            - BOAT_ID=42
+    
+        restart: always
+        expose:
+            - 8080
+        ports:
+            - "8080:8080"
+
+volumes:
+  data-volume:
+
+networks:
+    cx:
+        name: cx    
+
