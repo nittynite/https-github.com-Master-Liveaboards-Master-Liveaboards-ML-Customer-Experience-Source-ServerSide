@@ -25,7 +25,6 @@ async def saveAnswers(request: Request):
 
     json = await request.json()
 
-    print(json)
 
     destination = APP_PATH + json.guest_id + ".json"
 

@@ -6,9 +6,9 @@ import syncJSON
 
 APP_PATH = '/user/share/nginx/html/'
 
-REST_ENDPOINT_QUESTION = 'https://nrtest.masterliveaboards.com/questions/'
-REST_ENDPOINT_GUEST = 'https://nrtest.masterliveaboards.com/guests/'
-REST_ENDPOINT_ANSWER = 'https://nrtest.masterliveaboards.com/answers/'
+REST_ENDPOINT_QUESTION = 'https://guests.masterliveaboards.com/questions/'
+REST_ENDPOINT_GUEST = 'https://guests.masterliveaboards.com/guests/'
+REST_ENDPOINT_ANSWER = 'https://guests.masterliveaboards.com/answers/'
 
 def syncFiles():
 
@@ -36,6 +36,7 @@ def syncFiles():
         syncJSON(REST_ENDPOINT_QUESTION, APP_PATH + "json/guests.json")
 
     # for Survey Answers
+        syncJSON.syncSurvey(os.path.getmtime(APP_PATH))
 
 
 def job():
