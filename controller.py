@@ -3,8 +3,8 @@ from fastapi import FastAPI
 from fastapi import Request
 from fastapi.middleware.cors import CORSMiddleware
 
-#APP_PATH = '/usr/share/nginx/html/data/'
-APP_PATH = '/Volumes/Data/localsites/masterliveaboards.com/'
+APP_PATH = '/usr/share/nginx/html/data/'
+#PP_PATH = '/Volumes/Data/localsites/masterliveaboards.com/'
 app = FastAPI()
 
 origins = [
