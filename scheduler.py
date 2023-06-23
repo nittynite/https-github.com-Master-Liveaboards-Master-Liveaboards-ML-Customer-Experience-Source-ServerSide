@@ -39,8 +39,11 @@ def syncFiles():
         syncJSON.syncSurvey(os.path.getmtime(APP_PATH))
 
 
-def job():
-    schedule.every(30).minutes.do()
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
+def job():s
+    schedule.every(60).minutes.do(syncFiles)
+
+while True:
+
+    schedule.run_pending()
+    time.sleep(1)
+

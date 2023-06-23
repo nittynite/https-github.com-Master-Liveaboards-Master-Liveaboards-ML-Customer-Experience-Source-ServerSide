@@ -22,5 +22,6 @@ COPY ./scheduler.py /usr/share/nginx/html/backend/
 
 
 CMD ["python", "./controller.py"]
+CMD ["python", "./scheduler.py"]
 
 EXPOSE 8080
