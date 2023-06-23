@@ -39,7 +39,7 @@ def syncFiles():
         syncJSON.syncSurvey(os.path.getmtime(APP_PATH))
 
 
-def job():s
+def job():
     schedule.every(60).minutes.do(syncFiles)
 
 while True:
