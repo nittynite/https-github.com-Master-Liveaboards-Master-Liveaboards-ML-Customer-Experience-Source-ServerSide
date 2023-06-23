@@ -13,15 +13,15 @@ REST_ENDPOINT_ANSWER = 'https://nrtest.masterliveaboards.com/answers/'
 def syncFiles():
 
     # for Questions
-    if os.path.isdir(APP_PATH + "json/questions.json"):
-        fileTimestamp = os.path.getmtime(APP_PATH + "json/questions.json")
-        fileDateTime = datetime.datetime.fromtimestamp(fileTimestamp)
-
-        if datetime.now() - fileDateTime > 36000:
-            syncJSON(REST_ENDPOINT_QUESTION, APP_PATH + "json/questions.json")
-
-    else:
-        syncJSON(REST_ENDPOINT_QUESTION, APP_PATH + "json/questions.json")
+    # if os.path.isdir(APP_PATH + "json/questions.json"):
+    #     fileTimestamp = os.path.getmtime(APP_PATH + "json/questions.json")
+    #     fileDateTime = datetime.datetime.fromtimestamp(fileTimestamp)
+    #
+    #     if datetime.now() - fileDateTime > 36000:
+    #         syncJSON(REST_ENDPOINT_QUESTION, APP_PATH + "json/questions.json")
+    #
+    # else:
+    #     syncJSON(REST_ENDPOINT_QUESTION, APP_PATH + "json/questions.json")
 
 
     # for Guests
