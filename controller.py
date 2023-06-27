@@ -4,7 +4,7 @@ from fastapi import Request
 from fastapi.middleware.cors import CORSMiddleware
 
 APP_PATH = '/usr/share/nginx/html/data/'
-#PP_PATH = '/Volumes/Data/localsites/masterliveaboards.com/'
+#APP_PATH = "/Volumes/Data/localsites/masterliveaboards.com/"
 app = FastAPI()
 
 origins = [
@@ -22,24 +22,27 @@ app.add_middleware(
 @app.post("/answers")
 async def saveAnswers(request: Request):
 
+    requestDic = await request.json()
 
-    json = await request.json()
+    jsonDataDump = json.dumps(requestDic)
 
-
-    destination = APP_PATH + json.guest_id + ".json"
+    destination = APP_PATH + requestDic['id'] + ".json"
 
     with open(destination, "w") as outfile:
-        outfile.write(json)
+        outfile.write(jsonDataDump)
 
 @app.get("/answers")
 async def saveAnswers(request: Request):
 
-    json = await request.json()
+    requestDic = await request.json()
 
-    destination = APP_PATH + json.guest_id + ".json"
+    jsonDataDump = json.dumps(requestDic)
+
+    destination = APP_PATH + requestDic['id'] + ".json"
 
     with open(destination, "w") as outfile:
-        outfile.write(json)
+        outfile.write(jsonDataDump)
+
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8000)
