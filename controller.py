@@ -35,6 +35,7 @@ async def saveAnswers(request: Request):
 @app.get("/answers")
 async def saveAnswers(request: Request):
 
+
     requestDic = await request.json()
 
     jsonDataDump = json.dumps(requestDic)
